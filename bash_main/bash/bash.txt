@@ -1,0 +1,73 @@
+vagrant box add ujwalkc/centos7
+vagrant init ujwalkc/centos7
+vagrant up
+vagrant reload
+vagrant ssh ujwalkc
+vagrant halt ujwalkc
+vagrant suspend ujwalkc
+vagrant resume ujwalkc
+vagrant destroy ujwalkc
+
+
+
+
+Vagrant.configure (2) do |config|
+  config.vm.box = "jasonc/centos7"
+end
+
+Vagrant.configure (2) do |config|
+  config.vm.box = "jasonc/centos7"
+  config.vm.hostname = "linuxsvr1"
+  config.vm.box "private_network", ip: "10.2.3.4"
+end
+
+Vagrant.configure (2) do |config|
+  config.vm.box = "jasonc/centos7"
+  config.vm.hostname = "linuxsvr1"
+  config.vm.box "private_network", ip: "10.2.3.4"
+  config.vm.provider "virtualbox" do |vb|
+    vb.gui = true
+    vb.memory = "1024"
+  end
+end
+
+Vagrant.configure (2) do |config|
+  config.vm.box = "jasonc/centos7"
+  config.vm.hostname = "linuxsvr1"
+  config.vm.box "private_network", ip: "10.2.3.4"
+  config.vm.provision "shell", path: "setup.sh"
+end
+
+Vagrant.configure (2) do |config|
+  config.vm.box = "jasonc/centos7"
+
+
+
+vagrant init bento/ubuntu-22.04
+vagrant up
+
+vagrant init jasonc/centos7
+vagrant up
+
+  config.vm.define "server1" do |server1|
+    server1.vm.hostname = "server1"
+    server1.vm.network "private_network", ip: "10.2.3.4"
+  end
+
+  config.vm.define "server2" do |server2|
+    server2.vm.hostname = "server1"
+    server2.vm.network "private_network", ip: "10.2.3.5"
+  end
+end
+
+
+
+
+
+cd ~/vagrant
+type echo
+echo 'Hello'
+chmod 755 demo1.sh
+help
+uptime
+man uptime
